@@ -197,21 +197,21 @@ const skills = [
     {
       title: "NCDs Prevention",
       description: "Preventing non-communicable diseases in the community by modifying risk groups for chronic diseases to return to normal health before progressing to illness.",
-      image: "/ncd.png?height=200&width=300", // เปลี่ยนเป็นรูปจริง
+      image: "https://pic.in.th/image/ncd.X0dIHx?height=200&width=300", // เปลี่ยนเป็นรูปจริง
       tech: ["Vue.js", "Golang", "MongoDB"],
       link: "#", // ใส่ลิงก์จริง
     },
     {
       title: "MOPH KIOSK",
       description: "The service registration system via self-service kiosks manages service queues by department and sends notifications through the MOPH Station Line official account.",
-      image: "/kiosk.png?height=200&width=300", // เปลี่ยนเป็นรูปจริง
+      image: "https://pic.in.th/image/kiosk.X0TMXW?height=200&width=300", // เปลี่ยนเป็นรูปจริง
       tech: ["Vue.js", "Node.js", "MongoDB"],
       link: "#", // ใส่ลิงก์จริง
     },
     {
       title: "PCU Standard",
       description: "Information and Standards System for Primary Health Care Units",
-      image: "/pcu.png?height=200&width=300", // เปลี่ยนเป็นรูปจริง
+      image: "https://pic.in.th/image/pcu.X0TZgz?height=200&width=300", // เปลี่ยนเป็นรูปจริง
       tech: ["Vue.js", "Node.js", "MongoDB"],
       link: "#", // ใส่ลิงก์จริง
     },
@@ -237,7 +237,7 @@ const skills = [
             <div className="w-32 h-32 mx-auto mb-8 rounded-full bg-gradient-to-r from-purple-400 to-blue-500 p-1">
               <div className="w-full h-full rounded-full overflow-hidden">
                 <Image
-                  src="/profile.jpg"
+                  src="https://pic.in.th/image/profile.X0dBFC"
                   alt="Panupong Songsaksri Profile"
                   width={128}
                   height={128}
