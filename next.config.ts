@@ -1,12 +1,20 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  output: "export", // ✅ เพิ่มบรรทัดนี้
+  output: "export",
   trailingSlash: true,
   images: {
-    unoptimized: true, // ✅ จำเป็นสำหรับ static export
+    unoptimized: true, // จำเป็นสำหรับ static export
+    domains: ['pic.in.th'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'pic.in.th',
+        port: '',
+        pathname: '/image/**',
+      },
+    ],
   },
-  // คุณสามารถเพิ่ม config อื่นได้ตรงนี้ เช่น basePath ฯลฯ
 };
 
 export default nextConfig;
