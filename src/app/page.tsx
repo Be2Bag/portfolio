@@ -174,7 +174,7 @@ export default function Portfolio() {
   // ข้อมูล Skills - แก้ไข/เพิ่ม/ลด ได้ที่นี่
   // =============================================
 const skills = [
-  { name: "JavaScript", icon: "🔥", color: "from-yellow-400 to-orange-500" },     // สดกว่าของเดิม
+  { name: "JavaScript", icon: "🦨", color: "from-yellow-400 to-orange-500" },     // สดกว่าของเดิม
   { name: "Golang", icon: "🐹", color: "from-sky-500 to-blue-700" },              // ความเข้มเพิ่มขึ้น
   { name: "MongoDB", icon: "🍃", color: "from-lime-500 to-emerald-700" },         // เขียวเด่นขึ้น
   { name: "PostgreSQL", icon: "🐘", color: "from-indigo-500 to-indigo-800" },     // เพิ่ม contrast
