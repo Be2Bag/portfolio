@@ -275,7 +275,7 @@ export default function Portfolio() {
         "Developed an enterprise management system covering employee management, KPI tracking, financial (income–expense) monitoring, task workflow management, and a centralized performance dashboard.",
       image:
         "https://i.postimg.cc/qvj31Ctq/Screenshot-2025-10-11-122341.png?height=200&width=300", // เปลี่ยนเป็นรูปจริง
-      tech: ["Vue.js", "Node.js", "MongoDB"],
+      tech: ["Vue.js", "Golang", "MongoDB"],
       link: "#", // ใส่ลิงก์จริง
     },
     // เพิ่มโปรเจกต์ใหม่ได้ที่นี่
