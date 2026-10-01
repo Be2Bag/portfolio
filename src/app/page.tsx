@@ -161,7 +161,7 @@ const Navbar = () => {
     <motion.header
       initial={{ y: -100 }} // เริ่มต้นเลื่อนขึ้นไปด้านบน
       animate={{ y: 0 }} // เลื่อนลงมาตำแหน่งปกติ
-      className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-300 ${
+      className={`fixed top-4 left-1/2 max-w-[calc(100%-1rem)] transform -translate-x-1/2 z-50 transition-all duration-300 ${
         scrolled
           ? "backdrop-blur-md bg-white/80 shadow-lg"
           : "backdrop-blur-sm bg-white/60"
@@ -171,8 +171,8 @@ const Navbar = () => {
         border: "1px solid rgba(255, 255, 255, 0.2)",
       }}
     >
-      <nav aria-label="Main navigation" className="px-6 py-3">
-        <div className="flex items-center space-x-8">
+      <nav aria-label="Main navigation" className="px-3 md:px-6 py-3">
+        <div className="flex items-center gap-3 md:gap-8">
           {/* Logo/Brand */}
           <motion.div
             whileHover={{ scale: 1.05 }}
@@ -182,7 +182,7 @@ const Navbar = () => {
           </motion.div>
 
           {/* เมนูหลัก - เพิ่ม/ลด รายการได้ */}
-          <div className="hidden md:flex space-x-6">
+          <div className="flex items-center gap-3 md:gap-6 whitespace-nowrap text-sm md:text-base">
             {["Home", "Skills", "Projects", "Contact"].map((item) => (
               <motion.a
                 key={item}
@@ -325,7 +325,7 @@ export default function Portfolio() {
           </TextAnimate>
 
           {/* ข้อความพิมพ์ทีละตัว */}
-          <div className="text-2xl md:text-3xl text-gray-600 mb-8 h-12">
+          <div className="text-2xl md:text-3xl text-gray-600 mb-8 min-h-[4.5rem] md:min-h-0 md:h-12">
             <TypingAnimation text="Backend Developer | Node.js & Go (Golang)" />
             {/* เปลี่ยนข้อความได้ที่นี่ */}
           </div>

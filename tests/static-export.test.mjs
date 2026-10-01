@@ -49,3 +49,13 @@ test('profile structured data and discovery files are valid', () => {
   assert.match(sitemap, /<loc>https:\/\/www.be2bag.dev\/<\/loc>/);
   assert.equal((sitemap.match(/<loc>/g) || []).length, 1);
 });
+
+
+test('navigation remains available below the desktop breakpoint', () => {
+  const navigation = html.match(/<nav[^>]*aria-label="Main navigation"[^>]*>([\s\S]*?)<\/nav>/);
+  assert.ok(navigation, 'Named navigation exists');
+  assert.doesNotMatch(navigation[1], /hidden md:flex/);
+  for (const section of ['home', 'skills', 'projects', 'contact']) {
+    assert.match(navigation[1], new RegExp(`href="#${section}"`));
+  }
+});
