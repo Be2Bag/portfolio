@@ -53,9 +53,11 @@ const TypingAnimation = ({
 
   return (
     <span className={className}>
-      {displayText}
+      <span className="sr-only">{text}</span>
+      <span aria-hidden="true">{displayText}</span>
       {/* Cursor กระพริบ */}
       <motion.span
+        aria-hidden="true"
         animate={{ opacity: [1, 0] }}
         transition={{
           duration: 0.8,
@@ -159,7 +161,7 @@ const Navbar = () => {
     <motion.header
       initial={{ y: -100 }} // เริ่มต้นเลื่อนขึ้นไปด้านบน
       animate={{ y: 0 }} // เลื่อนลงมาตำแหน่งปกติ
-      className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-300 ${
+      className={`fixed top-4 left-1/2 max-w-[calc(100%-1rem)] transform -translate-x-1/2 z-50 transition-all duration-300 ${
         scrolled
           ? "backdrop-blur-md bg-white/80 shadow-lg"
           : "backdrop-blur-sm bg-white/60"
@@ -169,8 +171,8 @@ const Navbar = () => {
         border: "1px solid rgba(255, 255, 255, 0.2)",
       }}
     >
-      <nav className="px-6 py-3">
-        <div className="flex items-center space-x-8">
+      <nav aria-label="Main navigation" className="px-3 md:px-6 py-3">
+        <div className="flex items-center gap-3 md:gap-8">
           {/* Logo/Brand */}
           <motion.div
             whileHover={{ scale: 1.05 }}
@@ -180,7 +182,7 @@ const Navbar = () => {
           </motion.div>
 
           {/* เมนูหลัก - เพิ่ม/ลด รายการได้ */}
-          <div className="hidden md:flex space-x-6">
+          <div className="flex items-center gap-3 md:gap-6 whitespace-nowrap text-sm md:text-base">
             {["Home", "Skills", "Projects", "Contact"].map((item) => (
               <motion.a
                 key={item}
@@ -206,8 +208,8 @@ export default function Portfolio() {
   // ข้อมูล Skills - แก้ไข/เพิ่ม/ลด ได้ที่นี่
   // =============================================
   const skills = [
-    { name: "JavaScript", icon: "🦨", color: "from-yellow-400 to-orange-500" }, // สดกว่าของเดิม
-    { name: "Golang", icon: "🐹", color: "from-sky-500 to-blue-700" }, // ความเข้มเพิ่มขึ้น
+    { name: "Node.js / JavaScript", icon: "🦨", color: "from-yellow-400 to-orange-500" }, // สดกว่าของเดิม
+    { name: "Go (Golang)", icon: "🐹", color: "from-sky-500 to-blue-700" }, // ความเข้มเพิ่มขึ้น
     { name: "MongoDB", icon: "🍃", color: "from-lime-500 to-emerald-700" }, // เขียวเด่นขึ้น
     { name: "PostgreSQL", icon: "🐘", color: "from-indigo-500 to-indigo-800" }, // เพิ่ม contrast
     { name: "Redis", icon: "🧠", color: "from-red-500 to-rose-700" }, // แดงสด+ลึก
@@ -285,6 +287,7 @@ export default function Portfolio() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
       <Navbar />
 
+      <main>
       {/* =============================================
           Hero Section - หน้าแรก/หน้าหลัก
           ============================================= */}
@@ -304,7 +307,7 @@ export default function Portfolio() {
               <div className="w-full h-full rounded-full overflow-hidden">
                 <Image
                   src="https://i.postimg.cc/htV6Zpfz/profile.jpg"
-                  alt="Panupong Songsaksri Profile"
+                  alt="Panupong Songsaksri (Be2Bag)"
                   width={128}
                   height={128}
                   className="w-full h-full object-cover"
@@ -322,17 +325,20 @@ export default function Portfolio() {
           </TextAnimate>
 
           {/* ข้อความพิมพ์ทีละตัว */}
-          <div className="text-2xl md:text-3xl text-gray-600 mb-8 h-12">
-            <TypingAnimation text="Web Developer Node.js & Golang Backend Specialist" />
+          <div className="text-2xl md:text-3xl text-gray-600 mb-8 min-h-[4.5rem] md:min-h-0 md:h-12">
+            <TypingAnimation text="Backend Developer | Node.js & Go (Golang)" />
             {/* เปลี่ยนข้อความได้ที่นี่ */}
           </div>
 
           {/* คำอธิบายตัวเอง */}
           <TextAnimate className="mb-12">
             <p className="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              Web developer specializing in Node.js and Golang backends. I build
-              scalable APIs and modern web apps with a focus on clean code,
-              performance, and great user experience.
+              I&apos;m Panupong (Be2Bag), a backend developer in Bangkok, Thailand,
+              specializing in Node.js and Go (Golang). Explore my API and web
+              application projects, skills, and resume.{" "}
+              <span lang="th">
+                นักพัฒนา Backend ในประเทศไทย สร้าง API และเว็บแอปด้วย Node.js และ Go
+              </span>
             </p>
           </TextAnimate>
 
@@ -360,6 +366,7 @@ export default function Portfolio() {
             <div className="flex gap-4">
               <motion.a
                 href="https://github.com/Be2Bag" // ใส่ลิงก์ GitHub จริง
+                aria-label="Be2Bag on GitHub"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 className="p-3 rounded-full bg-white shadow-lg hover:shadow-xl transition-all border border-gray-200"
@@ -368,6 +375,7 @@ export default function Portfolio() {
               </motion.a>
               <motion.a
                 href="https://www.linkedin.com/in/panupong-songsaksri-7811a02a3/" // ใส่ลิงก์ LinkedIn จริง
+                aria-label="Panupong Songsaksri on LinkedIn"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
                 className="p-3 rounded-full bg-white shadow-lg hover:shadow-xl transition-all border border-gray-200"
@@ -387,7 +395,7 @@ export default function Portfolio() {
           {/* หัวข้อ Skills */}
           <TextAnimate>
             <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-gray-900 to-purple-600 bg-clip-text text-transparent">
-              Skills & Technologies {/* เปลี่ยนหัวข้อได้ */}
+              Backend Skills & Technologies {/* เปลี่ยนหัวข้อได้ */}
             </h2>
           </TextAnimate>
 
@@ -439,7 +447,7 @@ export default function Portfolio() {
                   <div className="relative overflow-hidden">
                     <Image
                       src={project.image || "/placeholder.svg"}
-                      alt={project.title}
+                      alt={`${project.title} web application screenshot`}
                       width={300}
                       height={200}
                       className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
@@ -519,6 +527,8 @@ export default function Portfolio() {
         </div>
       </section>
 
+      </main>
+
       {/* =============================================
           Footer/Contact Section - ติดต่อและข้อมูลส่วนตัว
           ============================================= */}
@@ -538,8 +548,8 @@ export default function Portfolio() {
           {/* ข้อความเชิญชวน */}
           <TextAnimate>
             <p className="text-lg mb-8 text-gray-300">
-              Ready to bring your ideas to life? Let&apos;s create something
-              amazing together.
+              Looking for a Node.js or Go backend developer? Get in touch to
+              discuss backend development roles and projects.
               {/* เปลี่ยนข้อความได้ที่นี่ */}
             </p>
           </TextAnimate>
@@ -562,7 +572,7 @@ export default function Portfolio() {
 
             {/* เบอร์โทร */}
             <a
-              href="tel:+1234567890" // เปลี่ยนเบอร์โทรจริง
+              href="tel:+66631067421"
               className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
             >
               <Phone className="h-5 w-5" />
