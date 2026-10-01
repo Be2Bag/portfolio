@@ -562,7 +562,7 @@ export default function Portfolio() {
 
             {/* เบอร์โทร */}
             <a
-              href="tel:+1234567890" // เปลี่ยนเบอร์โทรจริง
+              href="tel:+66631067421"
               className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors"
             >
               <Phone className="h-5 w-5" />
